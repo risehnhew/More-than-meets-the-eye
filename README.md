@@ -1,6 +1,14 @@
 # More Than Meets the Eye
 
-This repository hosts the image data accompanying the paper **More Than Meets the Eye**.
+This repository hosts the DIVA image dataset accompanying the ACL 2026 paper **More Than Meets the Eye: Measuring the Semiotic Gap in Vision-Language Models via Semantic Anchorage**.
+
+## Paper
+
+- **Title:** More Than Meets the Eye: Measuring the Semiotic Gap in Vision-Language Models via Semantic Anchorage
+- **Author:** Wei He
+- **Venue:** ACL 2026 Main Conference
+- **arXiv:** [2604.17354](https://arxiv.org/abs/2604.17354)
+- **DOI:** [10.48550/arXiv.2604.17354](https://doi.org/10.48550/arXiv.2604.17354)
 
 ## Dataset
 
@@ -184,7 +192,21 @@ print(items[0])
 
 ## Citation
 
-If you use this repository or the dataset, please cite the corresponding paper. Citation details will be added once the paper information is available.
+If you use this repository or the dataset, please cite the corresponding paper:
+
+```bibtex
+@misc{he2026morethanmeets,
+  title = {More Than Meets the Eye: Measuring the Semiotic Gap in Vision-Language Models via Semantic Anchorage},
+  author = {He, Wei},
+  year = {2026},
+  eprint = {2604.17354},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  doi = {10.48550/arXiv.2604.17354},
+  url = {https://arxiv.org/abs/2604.17354},
+  note = {Accepted to the Main Conference of ACL 2026}
+}
+```
 
 ## License
 
