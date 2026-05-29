@@ -4,13 +4,15 @@ This repository hosts the image data accompanying the paper **More Than Meets th
 
 ## Dataset
 
-The current release contains the `Original/` image set:
+The current release contains two image sets:
 
-| Split | Categories | Images per category | Total images | Format |
-| --- | ---: | ---: | ---: | --- |
-| `Original/` | 100 | 5 | 500 | PNG |
+| Split | Description | Categories | Images per category | Total images | Format | Size |
+| --- | --- | ---: | ---: | ---: | --- | ---: |
+| `Original/` | Original image set | 100 | 5 | 500 | PNG | 374.37 MiB |
+| `xeval/` | Extended evaluation image set | 100 | 5 | 500 | PNG | 105.40 MiB |
+| **Total** |  | 100 | 10 | 1,000 | PNG | 479.77 MiB |
 
-Each subdirectory under `Original/` corresponds to one idiomatic expression or phrase. Each directory contains five PNG images named with numeric image IDs.
+Each subdirectory under `Original/` and `xeval/` corresponds to one idiomatic expression or phrase. The two image sets use the same 100 category labels.
 
 Example:
 
@@ -24,15 +26,21 @@ Original/
     13874381277.png
     73444821016.png
     ...
+xeval/
+  acid test/
+    12066404241_new.png
+    34849537511_new.png
+    ...
 ```
 
-The uploaded dataset is approximately 374 MiB. Individual image files are below 6 MiB.
+The `Original/` images use numeric PNG filenames. The `xeval/` images use numeric filenames with the `_new.png` suffix.
 
 ## Repository Structure
 
 ```text
 .
 +-- Original/        # 100 phrase-level folders, 500 PNG images total
++-- xeval/           # 100 phrase-level folders, 500 PNG images total
 `-- README.md
 ```
 
@@ -47,16 +55,20 @@ git clone https://github.com/risehnhew/More-than-meets-the-eye.git
 cd More-than-meets-the-eye
 ```
 
-Enumerate the images in Python:
+Enumerate all images in Python:
 
 ```python
 from pathlib import Path
 
-root = Path("Original")
-items = [
-    {"label": path.parent.name, "path": path}
-    for path in root.glob("*/*.png")
-]
+items = []
+for split in ["Original", "xeval"]:
+    root = Path(split)
+    for path in root.glob("*/*.png"):
+        items.append({
+            "split": split,
+            "label": path.parent.name,
+            "path": path,
+        })
 
 print(len(items))
 print(items[0])
